@@ -3,19 +3,14 @@
 #include <string.h>
 
 #define MAXLEN 1024
-#define EXTRA 8
-/* 8 for field name "username", 1 for "=" */
-#define MAXINPUT MAXLEN+EXTRA+2
-/* 1 for added line break, 1 for trailing NUL */
 
 void unencode(char *src, char *last, char *dest);
-void decode(char *input);
 void login(char *user);
 void display();
 
 int main(void) 
 {
-//    setenv("QUERY_STRING", "username=eliwu18&password=pass", 100);
+//    setenv("QUERY_STRING", "username=eliwu18&password=password", 100);
     
     char *user_input;
     char *pass_input;
@@ -26,6 +21,7 @@ int main(void)
     char line[MAXLEN];
 
     int n = atoi(getenv("CONTENT_LENGTH"));
+//    int n = 34; for testing
     fgets(inputArray, n+1, stdin);
     unencode(inputArray, inputArray+n, outputArray);
 
@@ -34,12 +30,10 @@ int main(void)
 
     char *tok = strtok(tmp, "=");              //split temp string into tokens
     user_input = strtok(NULL, "&");               //Set "username" to point to second token
+    char *tok2 = strtok(NULL, "=");   
     pass_input = strtok(NULL, "\n");              //Set "password" to point to third token
 
     free(tmp);
-
-    printf("%s\n", user_input);
-    printf("%s\n", pass_input);
 
     FILE* members = fopen("Members.csv", "r");   //make sure first arg is Members.csv
 
@@ -70,7 +64,7 @@ int main(void)
     if(feof(members)){                              //Username & Password not found (i.e. not valid)
         printf( "Content-type: text/html\n\n");     //Display error HTML page
         printf("<HTML><BODY>\n");
-        printf("<P>Hey! This is my first CGI response!</P>\n"); 
+        printf("<P>ERROR</P>\n"); 
         printf( "</BODY></HTML>\n");
     }
 
@@ -94,20 +88,14 @@ void unencode(char *src, char *last, char *dest){
     *++dest = '\0';
 }
 
-void parse(char input[]){
-
-}
-
 void login(char *user){
     FILE* ptr = fopen("loggedin.csv", "r+");        
     fprintf(ptr, "%s\n", user);                     // append user name to loggedin.csv
     fclose(ptr);
-
-    // Display catalogue page, insert hidden field
 }
 
 void display(){
-    printf( "Content-type: text/html\n\n");     //Display error HTML page
+    printf( "Content-type: text/html\n\n");        //Display catalogue page, insert hidden field
     printf("<HTML><BODY>\n");
     printf("<P>Hey! This is my first CGI response!</P>\n"); 
     printf( "</BODY></HTML>\n");
