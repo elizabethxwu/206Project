@@ -86,6 +86,7 @@ void unencode(char *src, char *last, char *dest){
     *++dest = '\0';
 }
 
+//Append username to loggedin.csv
 void login(char *user){
     FILE* ptr = fopen("loggedin.csv", "a+");        //a+ means stream is positioned at EOF for writing     
     fprintf(ptr, "%s\n", user);                     // append user name to loggedin.csv
@@ -93,15 +94,19 @@ void login(char *user){
 }
 
 void displayCatalogue(){
-    printf( "Content-type: text/html\n\n");        //Display catalogue page, insert hidden field
-    printf("<HTML><BODY>\n");
-//Output Catalogue page with hidden field username
-    printf( "</BODY></HTML>\n");
+    printf( "Location: http://cgi.cs.mcgill.ca/~ablume5\n\n");      //Location of catalogue?
+// Need to find a way to insert hidden field
+//<meta http-equiv="refresh" content="10; url=http://example.com/"> 
+//<input type="hidden" name="redirect"
+// value="http://www.example.com/form-submitted.html">    
 }
 
+//Display error HTML page
 void displayError(){
-    printf( "Content-type: text/html\n\n");     //Display error HTML page
+    printf( "Content-type: text/html\n\n");     
     printf("<HTML><BODY>\n");
     printf("<P>ERROR</P>\n"); 
+    printf("<P>Go back to <a href=\"LOGINADDRESS\">Login</a></P>\n");
+    printf("<P>Go back to <a href=\"HOMEADDRESS\">Home</a></P>\n");
     printf( "</BODY></HTML>\n");
 }
