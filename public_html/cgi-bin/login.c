@@ -96,7 +96,8 @@ void login(char *user){
 }
 
 void displayCatalogue(){
-    printf("Location: http://cgi.cs.mcgill.ca/~ablume5\n\n");      //Redirects to Catalogue page
+    printf( "Content-type: text/html\n\n"); 
+    printf("Location: http://cs.mcgill.ca/~ewu5\n\n");      //Redirects to Catalogue page
 // Need to find a way to insert hidden field
 //<meta http-equiv="refresh" content="10; url=http://example.com/"> 
 //<input type="hidden" name="redirect" value="http://www.example.com/form-submitted.html">    
@@ -107,7 +108,6 @@ void displayError(){
     printf( "Content-type: text/html\n\n");     
     printf("<HTML><BODY>\n");
     printf("<P>ERROR</P>\n"); 
-    printf("%s\n", user_input);
     printf("<P>Go back to <a href=\"LOGINADDRESS\">Login</a></P>\n");
     printf("<P>Go back to <a href=\"HOMEADDRESS\">Home</a></P>\n");
     printf( "</BODY></HTML>\n");
