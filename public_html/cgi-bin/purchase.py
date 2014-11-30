@@ -3,7 +3,8 @@ import cgi
 import csv
 def checkUser(newUser):
 	users = []
-	with open('loggedin.csv', 'rb') as csvfile:
+	with open('Members.csv', 'rb') as csvfile:
+
 		reader = csv.reader(csvfile, delimiter=',', quotechar='|')
 		for x in reader:
 	 		if newUser == x[0] :
@@ -18,35 +19,38 @@ def updateInventory(product , qty):
 	with open('Inventory.csv', 'rb') as csvfile:
 		reader = csv.reader(csvfile, delimiter=',', quotechar='|')
 		for x in reader:
-	 		p1= x[0]
-	 		p2= x[1]
-	 		p3= x[2]
+			print x
+	 		p1= int(x[0])
+	 		p2= int(x[1])
+	 		p3= int(x[2])
 	 	pass
-	if (int(product) == 1) :
-		if (p1 - qty >= 0):
-			p1 = p1-qty
+	productNum = int(product)
+	sub = int(qty) 
+	if (productNum == 1) :
+		if (p1 - sub >= 0):
+			p1 = p1-sub
 			pass
 		else:
 			return 0 
 		pass
-	if (int(product) == 2) :
-		if (p2 - qty >= 0):
-			p2 = p2-qty
+	if (productNum == 2) :
+		if (p2 - sub >= 0):
+			p2 = p2-sub
+			pass
+		else:
+			return 0
+		pass
+	if (productNum == 3) :
+		if (p3 - sub >= 0):
+			p3 = p3-sub
 			pass
 		else:
 			return 0 
 		pass
-	if (int(product) == 3) :
-		if (p3 - qty >= 0):
-			p3 = p3-qty
-			pass
-		else:
-			return 0 
-		pass
-	with open('Inventory.csv', 'w',newline='') as csvfile:
-		writer = csv.writer(csvfile, delimiter=',', quotechar='|')
-		writer.writerow(p1,p2,p3)
-	 	pass
+
+	with open('Inventory.csv', 'wb') as f:
+	    writer = csv.writer(f)
+	    writer.writerow(p1,p2,p3)
 	return 1
 	pass
 def printOrder(price,qty, name,productName):
@@ -119,11 +123,10 @@ price = float(form.getvalue("price"))
 qty = int(form.getvalue("Qty"))
 productName = form.getvalue("product")
 username=form.getvalue("username")
-
 if(checkUser(username) == 1 and  qty >= 1 and  confirm == 1 and updateInventory(productName,qty)==1):
+	print "test"
 	printOrder(price,qty,username,productName)
 	pass
-
 else:
 	printError()
 
