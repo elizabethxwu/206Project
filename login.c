@@ -20,7 +20,8 @@ int main(void)
     char line[MAXLEN];
 
 // Assuming CGI is envoked with Method POST, not GET
-    int n = atoi(getenv("CONTENT_LENGTH"));             //Get length of input
+//    int n = atoi(getenv("CONTENT_LENGTH"));             //Get length of input
+    int n=30;
     fgets(inputArray, n+1, stdin);                      //Form input is sent as stdin
 
 /* Input is sent in with format:
@@ -70,6 +71,7 @@ int main(void)
     return 0;
 }
 
+//Decodes the Form Inputs from POST
 void unencode(char *src, char *last, char *dest){
     for(; src != last; src++, dest++)
         if(*src == '+')
@@ -94,11 +96,10 @@ void login(char *user){
 }
 
 void displayCatalogue(){
-    printf( "Location: http://cgi.cs.mcgill.ca/~ablume5\n\n");      //Location of catalogue?
+    printf("Location: http://cgi.cs.mcgill.ca/~ablume5\n\n");      //Redirects to Catalogue page
 // Need to find a way to insert hidden field
 //<meta http-equiv="refresh" content="10; url=http://example.com/"> 
-//<input type="hidden" name="redirect"
-// value="http://www.example.com/form-submitted.html">    
+//<input type="hidden" name="redirect" value="http://www.example.com/form-submitted.html">    
 }
 
 //Display error HTML page
