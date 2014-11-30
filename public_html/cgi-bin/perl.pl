@@ -1,28 +1,48 @@
 #!/usr/bin/perl
-# test.cgi by Bill Weinman [http://bw.org/]
-# Copyright 1995-2008 The BearHeart Group, LLC
-# Free Software: Use and distribution under the same terms as perl.
 
 use strict;
 use warnings;
-use CGI;
+use CGI ':standard', '-debug';
 
-print foreach (
-    "Content-Type: text/plain\n\n",
-    "BW Test version 5.0\n",
-    "Copyright 1995-2008 The BearHeart Group, LLC\n\n",
-    "Versions:\n=================\n",
-    "perl: $]\n",
-    "CGI: $CGI::VERSION\n"
-);
+my $q = new CGI;
 
-my $q = CGI::Vars();
-print "\nCGI Values:\n=================\n";
-foreach my $k ( sort keys %$q ) {
-    print "$k [$q->{$k}]\n";
+print $q->header;
+print $q->start_html;
+
+my $name = param("FullName");
+my $username = param("Username");
+my $password = param("Password");
+my $confirm_password = param("ConfirmPassword");
+
+
+
+
+# print $q->h1($name);
+# print $q->h1($username);
+# print $q->h1($password);
+# print $q->h1($confirm_password);
+if ($password ne $confirm_password){
+	print $q->h1("Password not equal");
 }
 
-print "\nEnvironment Variables:\n=================\n";
-foreach my $k ( sort keys %ENV ) {
-    print "$k [$ENV{$k}]\n";
+my $members = 'Members.csv';
+open(INFO, "<$members" || die $!);
+my @lines = <INFO>;
+close(INFO);
+my $line;
+my $exists=0;
+foreach $line (@lines){
+	my @memberinfo = split(/,/, $line);
+	if ($memberinfo[1] eq $username){
+		print"invalid name!\n";
+		$exists = 1;
+	}
 }
+if($exists == 0){
+	open(INFO, ">>$members" || die $!);
+	print INFO "$name,$username,$password\n";
+	print "user appended!\n";
+}
+
+
+print $q->end_html;
