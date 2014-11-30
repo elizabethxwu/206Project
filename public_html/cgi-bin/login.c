@@ -20,8 +20,7 @@ int main(void)
     char line[MAXLEN];
 
 // Assuming CGI is envoked with Method POST, not GET
-//    int n = atoi(getenv("CONTENT_LENGTH"));             //Get length of input
-    int n=30;
+    int n = atoi(getenv("CONTENT_LENGTH"));             //Get length of input
     fgets(inputArray, n+1, stdin);                      //Form input is sent as stdin
 
 /* Input is sent in with format:
@@ -40,6 +39,8 @@ int main(void)
     pass_input = strtok(NULL, "\n");              //Set "pass_input" to point to third token
 
     FILE* members = fopen("Members.csv", "rt");    //Open Members.csv file
+    if (members==NULL)
+        displayError();
 
    while (fgets(line, MAXLEN, members))
     {
@@ -96,8 +97,7 @@ void login(char *user){
 }
 
 void displayCatalogue(){
-    printf( "Content-type: text/html\n\n"); 
-    printf("Location: http://cs.mcgill.ca/~ablume5\n\n");      //Redirects to Catalogue page
+    printf("Location: http://cs.mcgill.ca/~ewu5\n\n");      //Redirects to Catalogue page
 // Need to find a way to insert hidden field
 //<meta http-equiv="refresh" content="10; url=http://example.com/"> 
 //<input type="hidden" name="redirect" value="http://www.example.com/form-submitted.html">    
@@ -108,7 +108,7 @@ void displayError(){
     printf( "Content-type: text/html\n\n");     
     printf("<HTML><BODY>\n");
     printf("<P>ERROR</P>\n"); 
-    printf("<P>Go back to <a href=\"/\">Login</a></P>\n");
-    printf("<P>Go back to <a href=\"/\">Home</a></P>\n");
+    printf("<P>Go back to <a href=\"http://cs.mcgill.ca/~ewu5\">Login</a></P>\n");
+    printf("<P>Go back to <a href=\"http://cs.mcgill.ca/~ewu5\">Home</a></P>\n");
     printf( "</BODY></HTML>\n");
 }
