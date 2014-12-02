@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAXLEN 128
+#define MAXLEN 256
 
 void unencode(char *src, char *last, char *dest);
 void login(char *user);
@@ -20,8 +20,7 @@ int main(void)
     char line[MAXLEN];
 
 // Assuming CGI is envoked with Method POST, not GET
-//    int n = atoi(getenv("CONTENT_LENGTH"));             //Get length of input
-    int n=30;
+    int n = atoi(getenv("CONTENT_LENGTH"));             //Get length of input
     fgets(inputArray, n+1, stdin);                      //Form input is sent as stdin
 
 /* Input is sent in with format:
