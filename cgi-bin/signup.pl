@@ -38,7 +38,7 @@ my $exists=0;
 foreach $line (@lines){
 	my @memberinfo = split(/,/, $line);
 	if ($memberinfo[1] eq $username){
-		print$q->h1"the username has been taken alread\n";
+		print "the username has been taken alread\n";
 		print "<ul> <a href='../signup.html'>Go Back to SignUp </a> </ul>";
 
 		$exists = 1;

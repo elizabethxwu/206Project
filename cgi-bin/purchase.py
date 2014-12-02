@@ -40,7 +40,7 @@ def updateInventory(product , qty):
 			p1QTY = p1QTY -sub
 			pass
 		else:
-			return 0 
+			return 0 ,p1QTY,0
 		pass
 	if (product == 2) :
 		name = p2NAME
@@ -49,7 +49,7 @@ def updateInventory(product , qty):
 			p2QTY = p2QTY-sub
 			pass
 		else:
-			return 0
+			return 0 ,p2QTY,0
 		pass
 	if (product == 3) :
 		name = p3NAME
@@ -58,7 +58,7 @@ def updateInventory(product , qty):
 			p3QTY = p3QTY-sub
 			pass
 		else:
-			return 0 
+			return 0 ,p3QTY,0
 		pass
 	writer = csv.writer(open("Inventory.csv", "wb"))
 	writer.writerow([p1NAME,p1PRICE,p1QTY,p2NAME,p2PRICE,p2QTY,p3NAME,p3PRICE,p3QTY])
@@ -85,9 +85,10 @@ def printOrder(price,qty, name,productName):
 	    <ul> <a href="../index.html">Home </a> </ul>"""
 	
 	pass
-def printError():
-	print "an error occured, please make sure you are logged in."
-	pass
+def printError(qty):
+	print "an error occured, please make sure you are logged in. or that there are enough of the product left"
+	print "there are ",qty,"left"
+	pass 
 print "Content-type: text/html"
 print
 print """<html>
@@ -112,7 +113,7 @@ if(checkUser(username) == 1 and  qty >= 1 and  confirm == 1 and productInfo[0]==
 	printOrder(productInfo[2],qty,username,productInfo[1])
 	pass
 else:
-	printError()
+	printError(productInfo[1])
 
 print """</html>""" 
 cgi.escape(message)
