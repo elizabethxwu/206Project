@@ -102,7 +102,7 @@ void displayCatalogue(char *user){
     puts("<INPUT TYPE='hidden' NAME='username' VALUE='");
     puts(user);
     puts("'>");
-    puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br><INPUT TYPE='hidden' NAME='product' VALUE='1'><INPUT TYPE='hidden' NAME='price' VALUE='15'><input type='submit' id ='submit1' value='Submit' /></p></form></div>");
+    puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br><INPUT TYPE='hidden' NAME='product' VALUE='1'> <input type='submit' id ='submit1' value='Submit' /></p></form></div>");
     
 
 
@@ -110,7 +110,7 @@ void displayCatalogue(char *user){
     puts("<INPUT TYPE='hidden' NAME='username' VALUE='");
     puts(user);
     puts("'>");
-    puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br><INPUT TYPE='hidden' NAME='product' VALUE='2'><INPUT TYPE='hidden' NAME='price' VALUE='65'><input type='submit' id ='submit1' value='Submit' /></p></form></div>");
+    puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br><INPUT TYPE='hidden' NAME='product' VALUE='2'> <input type='submit' id ='submit1' value='Submit' /></p></form></div>");
     
 
 
@@ -118,7 +118,7 @@ void displayCatalogue(char *user){
     puts("<INPUT TYPE='hidden' NAME='username' VALUE='");
     puts(user);
     puts("'>");
-    puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br><INPUT TYPE='hidden' NAME='product' VALUE='3'><INPUT TYPE='hidden' NAME='price' VALUE='20'><input type='submit' id ='submit1' value='Submit' /></p></form></div>");
+    puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br><INPUT TYPE='hidden' NAME='product' VALUE='3'> <input type='submit' id ='submit1' value='Submit' /></p></form></div>");
 
     puts(" <ul> <a href='../index.html'>Home </a> </ul>");
      

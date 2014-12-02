@@ -87,7 +87,10 @@ def printOrder(price,qty, name,productName):
 	pass
 def printError(qty):
 	print "an error occured, please make sure you are logged in. or that there are enough of the product left"
-	print "there are ",qty,"left"
+	if qty !=0 :
+		print "there are ",qty,"left"
+		pass
+	
 	pass 
 print "Content-type: text/html"
 print
@@ -99,7 +102,6 @@ try:
 	form = cgi.FieldStorage()
 	confirm =  int(form.getvalue("confirm"))
 	message = form.getvalue("message", "(no message)")
-	price = float(form.getvalue("price"))
 	qty = int(form.getvalue("Qty"))
 	productName = int(form.getvalue("product"))
 	username=form.getvalue("username").strip()
@@ -107,7 +109,7 @@ try:
 	productInfo = updateInventory(productName,qty)
  	pass
 except Exception, e:
- 	printError()
+ 	printError(0)
  	pass
 if(checkUser(username) == 1 and  qty >= 1 and  confirm == 1 and productInfo[0]==1):
 	printOrder(productInfo[2],qty,username,productInfo[1])
