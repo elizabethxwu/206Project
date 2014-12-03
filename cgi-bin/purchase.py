@@ -82,7 +82,8 @@ def printOrder(price,qty, name,productName):
 	  <p> Your order total comes to $"""
 	print qty*price
 	print""" (CAD) </p>
-	    <ul> <a href="../index.html">Home </a> </ul>"""
+	    <ul> <a href="../index.html">Home </a> </ul>
+	    <ul> <a href="../cat.html">Catalogue </a> </ul>"""
 	
 	pass
 def printError(qty):
