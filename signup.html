@@ -1,34 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  
+<head>
+<meta name="description" content="Buy our stuff">
 
-  <body>
+<title>Register</title>
+
+</head>
+
+<body style="margin:10px 100px;padding:0;font-family:Arial">
 
 
-          <form action="cgi-bin/signup.pl" method="post">
-       
-              <input type="text" NAME="FullName" placeholder="Full Name" class="form-control">
-           <br>
-        
+<table style="width:30%;height:50px;text-align:center;" align="center">
+        <tr>
+            <td><a href="index.html">Home</a></td>
+            <td><a href="cat.html">Catalogue</a></td>
+            <td><a href="login.html">Login</a></td>
+            <td><a style="color:#FF0000" href="signup.html">Register</a></td>
+        </tr>
+</table>
 
-              <input type="text" NAME="Username" placeholder="Username" class="form-control">
-       <br>
-            
-              <input type="password" NAME="Password" placeholder="Password" class="form-control">
-            <br>
-
-              <input type="password" NAME="ConfirmPassword"  placeholder="Confirm Password" class="form-control">
-           
-
-      <input type="submit"  value="Submit" />  </form>
-       
-      <h3>
-    <ul> <a href="login.html">Login </a> </ul>
-    <ul> <a href="signup.html">Signup </a> </ul>
-    <ul> <a href="cat.html">Catalog </a> </ul>
-
-  </h3>
+<br><br><br>
+<center>
+    <form action="cgi-bin/signup.pl" method="post">   
+        <input type="text" NAME="FullName" placeholder="Full Name" style="border: 2px solid #ddd; border-radius: 5px; width:200px; font-size: 100%; height: 25px; margin-bottom:10px"><br>
+        <input type="text" NAME="Username" placeholder="Username" style="border: 2px solid #ddd; border-radius: 5px; width:200px; font-size: 100%; height: 25px; margin-bottom:10px"><br>
+        <input type="password" NAME="Password" placeholder="Password" style="border: 2px solid #ddd; border-radius: 5px; width:200px; font-size: 100%; height: 25px; margin-bottom:10px"><br>
+        <input type="password" NAME="ConfirmPassword"  placeholder="Confirm Password" style="border: 2px solid #ddd; width:200px; border-radius: 5px; font-size: 100%; height: 25px; margin-bottom:10px"><br>
+        <button type="submit" style="background-color: #FF0000;color: white; padding: 0.5em 2em; border-radius: 5px">Register</button>  
+    </form>
+</center>
    
-  </body>
+</body>
 
 </html>
