@@ -1,70 +1,87 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  
 
-  <body>
-    <h1 >YOU ARE NOT LOGGED IN</h1>
+<head>
+<meta name="description" content="Buy our stuff">
+<title>Catalogue</title>
+</head>
 
-          <img src="t.jpg">
-          <h2>T-shirt</h2>
-          <p style="color:red; ">$15<p>
+<body style="margin:10px 100px;padding:0;font-family:Arial">
 
-          <p>its red, has cool slevees(1/4), says mcgill on it.</p>
-          <p><form action="cgi-bin/purchase.py" method="post">
-              <input type="text" name="Qty" width="40px" placeholder="Qty"><br>
-              <INPUT TYPE="hidden" NAME="username" VALUE="alec">
-              Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br>
-              <INPUT TYPE="hidden" NAME="product" VALUE="1">
-             <INPUT TYPE="hidden" NAME="price" VALUE="15">
-             <input type="submit" id ="submit1" value="Submit" />
-            </p>
-          </form>
-        </div>
+<table style="width:30%;height:50px;text-align:center;" align="center">
+        <tr>
+            <td><a href="index.html">Home</a></td>
+            <td><a style="color:#FF0000" href="cat.html">Catalogue</a></td>
+            <td><a href="login.html">Login</a></td>
+            <td><a href="signup.html">Register</a></td>
+        </tr>
+</table>
 
-        <img src="sweat.jpg">
+<center>
+<h1 >YOU ARE NOT LOGGED IN</h1>
+<table align="center">
+        <tr style="text-align:center">
+            <td><h2>T-shirt</h2></td>
+            <td><h2>Sweater</h2></td>
+            <td><h2>Mittens</h2></td>
+        </tr>
+        <tr style="text-align:center">
+            <td><img src="t.jpg" width="200"></td>
+            <td><img src="sweat.jpg" width="200"></td>
+            <td><img src="mitten.jpg" width="200"></td>
+        </tr>
+        <tr style="text-align: left">
+            <td><p style="color:red; text-align: center">$15</p>
+                <p>It's red, has cool slevees (1/4), says Mcgill on it.</p>
+            </td>
+            <td><p style="color:red; text-align: center">$65<p>
+                <p>It's red, has cool sleeves (4/4), says Mcgill on it, is warm. </p>
+            </td>
+            <td><p style="color:red; text-align: center">$20<p>
+                <p>Look cool, finger # agnostic. Note: Must have thumbs. </p>
+            </td>
+        </tr>
+        <tr style="text-align:center">
+            <td>
+                    <form action="cgi-bin/purchase.py" method="post">
+                        <input type="text" name="Qty" width="10px" placeholder="Qty" style="border: 2px solid #ddd; border-radius: 5px; font-size: 100%; width: 20%; height: 30px; margin-bottom:10px">
+                        Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'>
+                        <INPUT TYPE="hidden" NAME="username" VALUE="alec">
+                        <INPUT TYPE="hidden" NAME="product" VALUE="1">
+                        <INPUT TYPE="hidden" NAME="price" VALUE="15"><br>
+                        <button type="submit" id="submit1" value="Sumbit">Submit</button>
+                    </form>
+                
+            </td>
+            <td>
+                <p>
+                    <form action="cgi-bin/purchase.py" method="post">
+                        <input type="text" name="Qty" width="10px" placeholder="Qty" style="border: 2px solid #ddd; border-radius: 5px; font-size: 100%; width: 20%; height: 30px; margin-bottom:10px">
+                        Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'>
+                        <INPUT TYPE="hidden" NAME="username" VALUE="alec">
+                        <INPUT TYPE="hidden" NAME="product" VALUE="2">
+                        <INPUT TYPE="hidden" NAME="price" VALUE="65">
+                          <br>
+                        <button type="submit" id="submit1" value="Sumbit">Submit</button>
+                    </form>
+                </p>
+            </td>
+            <td><p>
+                    <form action="cgi-bin/purchase.py" method="post">
+                        <input type="text" name="Qty" width="10px" placeholder="Qty" style="border: 2px solid #ddd; border-radius: 5px; font-size: 100%; width: 20%; height: 30px; margin-bottom:10px">
+                        Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'>
+                        <INPUT TYPE="hidden" NAME="username" VALUE="alec">
+                        <INPUT TYPE="hidden" NAME="product" VALUE="3">
+                        <INPUT TYPE="hidden" NAME="price" VALUE="20">
+                          <br>
+                        <button type="submit" id="submit1" value="Sumbit">Submit</button>
+                    </form>
+                </p>
+            </td>
+        </tr>
+    </table>
+</center>
 
-          <h2>Sweater</h2>
-          <p style="color:red; ">$65<p>
-
-          <p>its red, has cool slevees(4/4), says mcgill on it, is warm. </p>
-          <p><form action="cgi-bin/purchase.py" method="post">
-           
-            
-             <input type="text" name="Qty" width="40px" placeholder="Qty"><br>
-             Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br>
-              <INPUT TYPE="hidden" NAME="username" VALUE="alec">
-                <INPUT TYPE="hidden" NAME="product" VALUE="2">
-             <INPUT TYPE="hidden" NAME="price" VALUE="65">
-             <input type="submit" id ="submit1" value="Submit" />
-             </form>
-            </p>
-          
-       </div>
-          <img src="mitten.jpg">
-          <h2>Mittens</h2>
-          <p style="color:red; ">$20<p>
-          <p>Look cool, finger # agnostic. Note: must have thumbs. </p>
-         <p><form action="cgi-bin/purchase.py" method="post">
-           
-            
-             <input type="text" name="Qty" width="40px" placeholder="Qty"><br>
-             Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br>
-              <INPUT TYPE="hidden" NAME="username" VALUE="alec">
-                <INPUT TYPE="hidden" NAME="product" VALUE="3">
-             <INPUT TYPE="hidden" NAME="price" VALUE="20">
-             <input type="submit" id ="submit1" value="Submit" />
-            </p>
-          </form>
-        </div>
-      </div>
-
- <h3>
-    <ul> <a href="login.html">Login </a> </ul>
-    <ul> <a href="signup.html">Signup </a> </ul>
-    <ul> <a href="cat.html">Catalog </a> </ul>
-
-  </h3>
-   
-  </body>
+</body>
 
 </html>
