@@ -97,88 +97,41 @@ void login(char *user){
 }
 
 void displayCatalogue(char *user){
-    printf( "Content-type: text/html\n\n"); 
-    puts("   <img src='../t.jpg'><h2>T-shirt</h2><p style='color:red; '>$15<p><p>its red, has cool slevees(1/4), says mcgill on it.</p><p><form action='purchase.py' method='post'><input type='text' name='Qty' width='40px' placeholder='Qty'><br>");
+    printf( "Content-type: text/html\n\n");
+    puts("<head><meta name='description' content='Buy our stuff'><title>Catalogue</title></head>");
+    puts("<body style='margin:10px 100px;padding:0;font-family:Arial'>");
+    puts("<table style='width:30%%;height:50px;text-align:center;'' align='center'><tr><td><a href='index.html'>Home</a></td><td><a style='color:#FF0000' href='cat.html'>Catalogue</a></td><td><a href='login.html'>Login</a></td><td><a href='signup.html'>Register</a></td></tr></table>");
+    puts("<center><table>")
+    puts("<tr style='text-align:center'><td><h2>T-shirt</h2></td><td><h2>Sweater</h2></td><td><h2>Mittens</h2></td></tr>");
+    puts("<tr style='text-align:center'><td><img src='t.jpg' width='200'></td><td><img src='sweat.jpg' width='200'></td><td><img src='mitten.jpg' width='200'></td></tr>");
+    puts("<tr style='text-align: left'><td><p style='color:red; text-align: center'>$15</p><p>Its red, has cool slevees (1/4), says Mcgill on it.</p></td>");
+    puts("<td><p style='color:red; text-align: center'>$65<p><p>Its red, has cool sleeves (4/4), says Mcgill on it, is warm.</p></td><td><p style='color:red; text-align: center'>$20<p><p>Look cool. Note: Must have thumbs. </p></td></tr>");
+    puts("<tr style='text-align:center'><td><form action='cgi-bin/purchase.py' method='post'><input type='text' name='Qty' width='10px' placeholder='Qty' style='border:2px solid #ddd;border-radius:5px;font-size:100%%;width:20%%;height:30px;margin-bottom:10px'>");
     puts("<INPUT TYPE='hidden' NAME='username' VALUE='");
     puts(user);
     puts("'>");
-    puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br><INPUT TYPE='hidden' NAME='product' VALUE='1'> <input type='submit' id ='submit1' value='Submit' /></p></form></div>");
-    
-
-
-    puts("   <img src='../sweat.jpg'><h2>Sweater</h2><p style='color:red; '>$65<p><p>its red, has cool slevees(4/4), says mcgill on it, is warm. </p><p><form action='purchase.py' method='post'><input type='text' name='Qty' width='40px' placeholder='Qty'><br>");
+    puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><INPUT TYPE='hidden' NAME='product' VALUE='1'><INPUT TYPE='hidden' NAME='price' VALUE='15'><br><button type='submit' id='submit1' value='Sumbit'>Submit</button></form></td>");                
+    puts("<td><p><form action='cgi-bin/purchase.py' method='post'><input type='text' name='Qty' width='10px' placeholder='Qty' style='border: 2px solid #ddd; border-radius: 5px; font-size: 100%%; width: 20%%; height: 30px; margin-bottom:10px'>Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'>");    
     puts("<INPUT TYPE='hidden' NAME='username' VALUE='");
     puts(user);
     puts("'>");
-    puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br><INPUT TYPE='hidden' NAME='product' VALUE='2'> <input type='submit' id ='submit1' value='Submit' /></p></form></div>");
-    
-
-
-    puts("   <img src='../mitten.jpg'><h2>Mitten</h2><p style='color:red; '>$20<p><p>Look cool, finger # agnostic. Note: must have thumbs. </p><p><form action='purchase.py' method='post'><input type='text' name='Qty' width='40px' placeholder='Qty'><br>");
+    puts("<INPUT TYPE='hidden' NAME='product' VALUE='2'><INPUT TYPE='hidden' NAME='price' VALUE='65'><br><button type='submit' id='submit1' value='Sumbit'>Submit</button></form></p></td>");            
+    puts("<td><p><form action='cgi-bin/purchase.py' method='post'><input type='text' name='Qty' width='10px' placeholder='Qty' style='border: 2px solid #ddd; border-radius: 5px; font-size: 100%%; width: 20%%; height: 30px; margin-bottom:10px'>Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'>");  
     puts("<INPUT TYPE='hidden' NAME='username' VALUE='");
     puts(user);
-    puts("'>");
-    puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br><INPUT TYPE='hidden' NAME='product' VALUE='3'> <input type='submit' id ='submit1' value='Submit' /></p></form></div>");
-
-    puts(" <ul> <a href='../index.html'>Home </a> </ul>");
-     
- //        <img src="sweat.jpg">
-
- //          <h2>Sweater</h2>
- //          <p style="color:red; ">$65<p>
-
- //          <p>its red, has cool slevees(4/4), says mcgill on it, is warm. </p>
- //          <p><form action="cgi-bin/purchase.py" method="post">
-           
-            
- //             <input type="text" name="Qty" width="40px" placeholder="Qty"><br>
- //             Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br>
- //              <INPUT TYPE="hidden" NAME="username" VALUE="alec">
- //                <INPUT TYPE="hidden" NAME="product" VALUE="2">
- //             <INPUT TYPE="hidden" NAME="price" VALUE="65">
- //             <input type="submit" id ="submit1" value="Submit" />
- //             </form>
- //            </p>
-          
- //       </div>
- //          <img src="mitten.jpg">
- //          <h2>Mittens</h2>
- //          <p style="color:red; ">$20<p>
- //          <p>Look cool, finger # agnostic. Note: must have thumbs. </p>
- //         <p><form action="cgi-bin/purchase.py" method="post">
-           
-            
- //             <input type="text" name="Qty" width="40px" placeholder="Qty"><br>
- //             Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><br>
- //              <INPUT TYPE="hidden" NAME="username" VALUE="alec">
- //                <INPUT TYPE="hidden" NAME="product" VALUE="3">
- //             <INPUT TYPE="hidden" NAME="price" VALUE="20">
- //             <input type="submit" id ="submit1" value="Submit" />
- //            </p>
- //          </form>
- //        </div>
- //      </div>
-
- // <h3>
- //    <ul> <a href="login.html">Login </a> </ul>
- //    <ul> <a href="signup.html">Signup </a> </ul>
- //    <ul> <a href="cat.html">Catalog </a> </ul>
-
- //  </h3>
-   
- //  </body>",stdout);
- //    printf("Location: http://cs.mcgill.ca/~ewu5\n\n");      //Redirects to Catalogue page
-// Need to find a way to insert hidden field
-//<meta http-equiv="refresh" content="10; url=http://example.com/"> 
-//<input type="hidden" name="redirect" value="http://www.example.com/form-submitted.html">    
+    puts("'>");                    
+    puts("<INPUT TYPE='hidden' NAME='product' VALUE='3'><INPUT TYPE='hidden' NAME='price' VALUE='20'><br><button type='submit' id='submit1' value='Sumbit'>Submit</button></form></p></td>");
+    puts("</tr></table></center></body>");
 }
 
 //Display error HTML page
 void displayError(){
-    printf( "Content-type: text/html\n\n");     
-    printf("<HTML><BODY>\n");
-    printf("<P>ERROR</P>\n"); 
-    printf("<P>Go back to <a href=\"../login.html\">Login</a></P>\n");
-    printf("<P>Go back to <a href=\"../index.html\">Home</a></P>\n");
-    printf( "</BODY></HTML>\n");
+    FILE* cat = fopen("error.html","r");
+    int ch;
+    printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
+    while((ch=getc(f)) != EOF){
+        putchar(ch);
+    }
+        
+    fclose(f); 
 }
