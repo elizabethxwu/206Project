@@ -100,23 +100,23 @@ void displayCatalogue(char *user){
     printf( "Content-type: text/html\n\n");
     puts("<head><meta name='description' content='Buy our stuff'><title>Catalogue</title></head>");
     puts("<body style='margin:10px 100px;padding:0;font-family:Arial'>");
-    puts("<table style='width:30%%;height:50px;text-align:center;'' align='center'><tr><td><a href='index.html'>Home</a></td><td><a style='color:#FF0000' href='cat.html'>Catalogue</a></td><td><a href='login.html'>Login</a></td><td><a href='signup.html'>Register</a></td></tr></table>");
-    puts("<center><table>")
+    puts("<table style='width:30%%;height:50px;text-align:center;'' align='center'><tr><td><a href='../index.html'>Home</a></td><td><a style='color:#FF0000' href='../cat.html'>Catalogue</a></td><td><a href='../login.html'>Login</a></td></tr></table>");
+    puts("<center><h1>Catalogue</h1><br><table align='center'>");
     puts("<tr style='text-align:center'><td><h2>T-shirt</h2></td><td><h2>Sweater</h2></td><td><h2>Mittens</h2></td></tr>");
-    puts("<tr style='text-align:center'><td><img src='t.jpg' width='200'></td><td><img src='sweat.jpg' width='200'></td><td><img src='mitten.jpg' width='200'></td></tr>");
+    puts("<tr style='text-align:center'><td><img src='../t.jpg' width='200'></td><td><img src='../sweat.jpg' width='200'></td><td><img src='../mitten.jpg' width='200'></td></tr>");
     puts("<tr style='text-align: left'><td><p style='color:red; text-align: center'>$15</p><p>Its red, has cool slevees (1/4), says Mcgill on it.</p></td>");
     puts("<td><p style='color:red; text-align: center'>$65<p><p>Its red, has cool sleeves (4/4), says Mcgill on it, is warm.</p></td><td><p style='color:red; text-align: center'>$20<p><p>Look cool. Note: Must have thumbs. </p></td></tr>");
-    puts("<tr style='text-align:center'><td><form action='cgi-bin/purchase.py' method='post'><input type='text' name='Qty' width='10px' placeholder='Qty' style='border:2px solid #ddd;border-radius:5px;font-size:100%%;width:20%%;height:30px;margin-bottom:10px'>");
+    puts("<tr style='text-align:center'><td><form action='purchase.py' method='post'><input type='text' name='Qty' width='10px' placeholder='Qty' style='border:2px solid #ddd;border-radius:5px;font-size:100%%;width:20%%;height:30px;margin-bottom:10px'>");
     puts("<INPUT TYPE='hidden' NAME='username' VALUE='");
     puts(user);
     puts("'>");
     puts("Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'><INPUT TYPE='hidden' NAME='product' VALUE='1'><INPUT TYPE='hidden' NAME='price' VALUE='15'><br><button type='submit' id='submit1' value='Sumbit'>Submit</button></form></td>");                
-    puts("<td><p><form action='cgi-bin/purchase.py' method='post'><input type='text' name='Qty' width='10px' placeholder='Qty' style='border: 2px solid #ddd; border-radius: 5px; font-size: 100%%; width: 20%%; height: 30px; margin-bottom:10px'>Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'>");    
+    puts("<td><p><form action='purchase.py' method='post'><input type='text' name='Qty' width='10px' placeholder='Qty' style='border: 2px solid #ddd; border-radius: 5px; font-size: 100%%; width: 20%%; height: 30px; margin-bottom:10px'>Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'>");    
     puts("<INPUT TYPE='hidden' NAME='username' VALUE='");
     puts(user);
     puts("'>");
     puts("<INPUT TYPE='hidden' NAME='product' VALUE='2'><INPUT TYPE='hidden' NAME='price' VALUE='65'><br><button type='submit' id='submit1' value='Sumbit'>Submit</button></form></p></td>");            
-    puts("<td><p><form action='cgi-bin/purchase.py' method='post'><input type='text' name='Qty' width='10px' placeholder='Qty' style='border: 2px solid #ddd; border-radius: 5px; font-size: 100%%; width: 20%%; height: 30px; margin-bottom:10px'>Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'>");  
+    puts("<td><p><form action='purchase.py' method='post'><input type='text' name='Qty' width='10px' placeholder='Qty' style='border: 2px solid #ddd; border-radius: 5px; font-size: 100%%; width: 20%%; height: 30px; margin-bottom:10px'>Confirm: <input id='confirm' type='checkbox' value='1' name='confirm'>");  
     puts("<INPUT TYPE='hidden' NAME='username' VALUE='");
     puts(user);
     puts("'>");                    
@@ -126,12 +126,11 @@ void displayCatalogue(char *user){
 
 //Display error HTML page
 void displayError(){
-    FILE* cat = fopen("error.html","r");
+    FILE* cat = fopen("../error.html","r");
     int ch;
     printf("%s%c%c\n", "Content-Type:text/html;charset=iso-8859-1",13,10);
-    while((ch=getc(f)) != EOF){
+    while((ch=getc(cat)) != EOF){
         putchar(ch);
     }
-        
-    fclose(f); 
+    fclose(cat); 
 }
