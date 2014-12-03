@@ -87,11 +87,12 @@ def printOrder(price,qty, name,productName):
 	
 	pass
 def printError(qty):
-	print "An error occured, please make sure you are logged in. Or that there are enough of the product left"
+	print "An error occured, please make sure you are logged in. Or that there are enough of the product left. "
 	if qty !=0 :
-		print "There are ",qty,"left"
+		print " There are ",qty,"left"
 		pass
-	
+	print """<p>Go Back to <a href="../cat.html">Catalogue </a><br>
+	    		Or <a href="../login.html">Login</a> now</p>"""
 	pass 
 print "Content-type: text/html"
 print
