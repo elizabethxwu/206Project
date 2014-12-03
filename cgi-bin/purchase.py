@@ -86,9 +86,9 @@ def printOrder(price,qty, name,productName):
 	
 	pass
 def printError(qty):
-	print "an error occured, please make sure you are logged in. or that there are enough of the product left"
+	print "An error occured, please make sure you are logged in. Or that there are enough of the product left"
 	if qty !=0 :
-		print "there are ",qty,"left"
+		print "There are ",qty,"left"
 		pass
 	
 	pass 
