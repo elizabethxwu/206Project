@@ -114,7 +114,7 @@ void displayCatalogue(char *user){
     
 
 
-    puts("   <img src='../mitten.jpg'><h2>T-shirt</h2><p style='color:red; '>$20<p><p>Look cool, finger # agnostic. Note: must have thumbs. </p><p><form action='purchase.py' method='post'><input type='text' name='Qty' width='40px' placeholder='Qty'><br>");
+    puts("   <img src='../mitten.jpg'><h2>Mitten</h2><p style='color:red; '>$20<p><p>Look cool, finger # agnostic. Note: must have thumbs. </p><p><form action='purchase.py' method='post'><input type='text' name='Qty' width='40px' placeholder='Qty'><br>");
     puts("<INPUT TYPE='hidden' NAME='username' VALUE='");
     puts(user);
     puts("'>");
